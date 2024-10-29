@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="13px" viewBox="0 0 12 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>control-prev</title>
+    <defs>
+        <filter color-interpolation-filters="auto" id="filter-1">
+            <feColorMatrix in="SourceGraphic" type="matrix" values="0 0 0 0 0.847000 0 0 0 0 0.847000 0 0 0 0 0.847000 0 0 0 1.000000 0"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="control-prev" transform="translate(-107.000000, -13.000000)" filter="url(#filter-1)">
+            <g transform="translate(113.000000, 19.352941) scale(-1, 1) translate(-113.000000, -19.352941) translate(107.000000, 13.000000)">
+                <path d="M1.21732064,0.10815718 C1.09353255,0.0373234813 0.952799076,0 0.809495568,0 C0.362423535,0 0,0.355584658 0,0.794220483 L0,4.75229434 L0,7.95345863 L0,11.9115326 C0,12.0521311 0.038041098,12.1902098 0.110237279,12.3116615 C0.335473341,12.6905638 0.831130884,12.818581 1.21732064,12.5975959 L9.33333349,7.95345863 L9.33333349,11.368421 C9.33333349,12.1070805 9.93028621,12.7058824 10.6666661,12.7058824 C11.4030459,12.7058824 12,12.1070805 12,11.368421 L12,1.33746134 C12,0.598801888 11.4030459,0 10.6666661,0 C9.93028621,0 9.33333349,0.598801888 9.33333349,1.33746134 L9.33333349,4.75229434 L1.21732064,0.10815718 Z" id="Next" fill="#A1A4B2" fill-rule="nonzero" transform="translate(6.000000, 6.352941) scale(-1, 1) translate(-6.000000, -6.352941) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

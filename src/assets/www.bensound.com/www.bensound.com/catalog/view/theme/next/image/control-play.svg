@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="31px" viewBox="0 0 32 31" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Results" transform="translate(-322.000000, -938.000000)">
+            <g id="Bar/Dark" transform="translate(0.000000, 921.000000)">
+                <g id="Group" transform="translate(323.385038, 17.615141)">
+                    <circle id="Oval-3" stroke="#FFFFFF" opacity="0.3" cx="14.7624365" cy="14.7624365" r="14.7624365"></circle>
+                    <g id="icons-/-icon_play_mini" transform="translate(10.000000, 9.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                        <g transform="translate(0.333333, 0.666667)" id="Path">
+                            <path d="M9.43388889,4.56093848 L1.63166667,0.105018598 C1.4010101,-0.0194563662 1.11459596,0.00128183119 0.898282828,0.00128183119 C0.033030303,0.00128183119 0.0368684015,0.606809728 0.0368684015,0.760217454 L0.0368684015,9.86762804 C0.0368684015,9.99732189 0.0330808081,10.6266094 0.898282828,10.6266094 C1.11459596,10.6266094 1.40106061,10.6472561 1.63166667,10.5228269 L9.43383838,6.06695279 C10.0742424,5.72154506 9.96358586,5.31392275 9.96358586,5.31392275 C9.96358586,5.31392275 10.0742929,4.90630043 9.43388889,4.56093848 Z"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
