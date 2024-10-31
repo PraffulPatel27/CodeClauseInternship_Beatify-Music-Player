@@ -37,7 +37,7 @@
 
 import React, { useState } from 'react';
 
-const UploadSongs = ({ setPlaylist }) => {
+const UploadSongs = ({ addSongToPlaylist }) => {
   const [uploadedSongs, setUploadedSongs] = useState([]);
 
   const handleSongUpload = (e) => {
@@ -47,7 +47,6 @@ const UploadSongs = ({ setPlaylist }) => {
       url: URL.createObjectURL(file)
     }));
     setUploadedSongs([...uploadedSongs, ...songs]);
-    setPlaylist(prev => [...prev, ...songs]);
   };
 
   return (
@@ -62,7 +61,15 @@ const UploadSongs = ({ setPlaylist }) => {
       />
       <ul>
         {uploadedSongs.map((song, idx) => (
-          <li key={idx} className="mb-1">{song.name}</li>
+          <li key={idx} className="mb-1 flex justify-between items-center">
+            {song.name}
+            <button
+              className="bg-blue-600 p-1 rounded text-white ml-4"
+              onClick={() => addSongToPlaylist(song)}
+            >
+              Add to Playlist
+            </button>
+          </li>
         ))}
       </ul>
     </div>

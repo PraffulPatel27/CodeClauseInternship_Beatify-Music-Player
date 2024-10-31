@@ -1,326 +1,131 @@
-// import React, { useState, useRef, useEffect } from 'react';
-
-// const MusicPlayer = ({ playlist, setPlaylist, currentSong, setCurrentSong, likedSongs, setLikedSongs }) => {
-//   const [isPlaying, setIsPlaying] = useState(false);
-//   const [currentTime, setCurrentTime] = useState(0);
-//   const [duration, setDuration] = useState(0);
-//   const [volume, setVolume] = useState(1);
-//   const audioRef = useRef(null);
-
-//   // Play or pause song
-//   const togglePlayPause = () => {
-//     setIsPlaying(!isPlaying);
-//     isPlaying ? audioRef.current.pause() : audioRef.current.play();
-//   };
-
-//   // Handle next and previous songs
-//   const handleNext = () => {
-//     if (currentSong < playlist.length - 1) {
-//       setCurrentSong(currentSong + 1);
-//       setIsPlaying(true); // Automatically play next song
-//     }
-//   };
-
-//   const handlePrev = () => {
-//     if (currentSong > 0) {
-//       setCurrentSong(currentSong - 1);
-//       setIsPlaying(true); // Automatically play previous song
-//     }
-//   };
-
-//   // Update current time and progress bar
-//   const handleTimeUpdate = () => {
-//     setCurrentTime(audioRef.current.currentTime);
-//   };
-
-//   const handleLoadedData = () => {
-//     setDuration(audioRef.current.duration);
-//   };
-
-//   const handleVolumeChange = (e) => {
-//     const newVolume = e.target.value;
-//     setVolume(newVolume);
-//     audioRef.current.volume = newVolume;
-//   };
-
-//   // Automatically play or pause when currentSong changes
-//   useEffect(() => {
-//     if (isPlaying) {
-//       audioRef.current.play();
-//     } else {
-//       audioRef.current.pause();
-//     }
-//   }, [currentSong, isPlaying]);
-
-//   return (
-//     <div className="flex flex-col items-center p-4 bg-gray-900 rounded-lg shadow-lg text-white">
-//       <h2 className="text-xl mb-4">{playlist[currentSong]?.name || "No song selected"}</h2>
-//       <audio
-//         ref={audioRef}
-//         src={playlist[currentSong]?.url}
-//         onTimeUpdate={handleTimeUpdate}
-//         onLoadedData={handleLoadedData}
-//         onEnded={handleNext}
-//       ></audio>
-      
-//       {/* Progress Bar */}
-//       <div className="w-full mt-2">
-//         <input
-//           type="range"
-//           min="0"
-//           max={duration}
-//           value={currentTime}
-//           onChange={(e) => (audioRef.current.currentTime = e.target.value)}
-//           className="w-full"
-//         />
-//       </div>
-//       {/* Time Display */}
-//       <div className="flex justify-between w-full text-sm mt-1">
-//         <span>{Math.floor(currentTime / 60)}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}</span>
-//         <span>{Math.floor(duration / 60)}:{Math.floor(duration % 60).toString().padStart(2, '0')}</span>
-//       </div>
-      
-//       {/* Control Buttons */}
-//       <div className="flex justify-between items-center w-full mt-4">
-//         <button onClick={handlePrev} className="p-2 bg-gray-700 rounded">Prev</button>
-//         <button onClick={togglePlayPause} className="p-2 bg-green-600 rounded">
-//           {isPlaying ? "Pause" : "Play"}
-//         </button>
-//         <button onClick={handleNext} className="p-2 bg-gray-700 rounded">Next</button>
-//       </div>
-
-//       {/* Volume Control */}
-//       <div className="mt-4">
-//         <input 
-//           type="range" 
-//           min="0" 
-//           max="1" 
-//           step="0.1" 
-//           value={volume} 
-//           onChange={handleVolumeChange} 
-//           className="w-full"
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MusicPlayer;
-
-
-// import React, { useState, useRef, useEffect } from 'react';
-
-// const MusicPlayer = ({ playlist, currentSong, setCurrentSong }) => {
-//   const [isPlaying, setIsPlaying] = useState(false);
-//   const [currentTime, setCurrentTime] = useState(0);
-//   const [duration, setDuration] = useState(0);
-//   const [volume, setVolume] = useState(1);
-//   const audioRef = useRef(null);
-
-//   // Play or pause song
-//   const togglePlayPause = () => {
-//     setIsPlaying(!isPlaying);
-//     isPlaying ? audioRef.current.pause() : audioRef.current.play();
-//   };
-
-//   // Handle next and previous songs
-//   const handleNext = () => {
-//     if (currentSong < playlist.length - 1) {
-//       setCurrentSong(currentSong + 1);
-//       setIsPlaying(true); // Automatically play next song
-//     }
-//   };
-
-//   const handlePrev = () => {
-//     if (currentSong > 0) {
-//       setCurrentSong(currentSong - 1);
-//       setIsPlaying(true); // Automatically play previous song
-//     }
-//   };
-
-//   // Update current time and progress bar
-//   const handleTimeUpdate = () => {
-//     setCurrentTime(audioRef.current.currentTime);
-//   };
-
-//   const handleLoadedData = () => {
-//     setDuration(audioRef.current.duration);
-//   };
-
-//   const handleVolumeChange = (e) => {
-//     const newVolume = e.target.value;
-//     setVolume(newVolume);
-//     audioRef.current.volume = newVolume;
-//   };
-
-//   // Automatically play or pause when currentSong changes
-//   useEffect(() => {
-//     if (isPlaying) {
-//       audioRef.current.play();
-//     } else {
-//       audioRef.current.pause();
-//     }
-//   }, [currentSong, isPlaying]);
-
-//   return (
-//     <div className="flex flex-col items-center p-4 bg-gray-900 rounded-lg shadow-lg text-white">
-//       <h2 className="text-xl mb-4">{playlist[currentSong]?.name || "No song selected"}</h2>
-//       <audio
-//         ref={audioRef}
-//         src={playlist[currentSong]?.url}
-//         onTimeUpdate={handleTimeUpdate}
-//         onLoadedData={handleLoadedData}
-//         onEnded={handleNext}
-//       ></audio>
-      
-//       {/* Progress Bar */}
-//       <div className="w-full mt-2">
-//         <input
-//           type="range"
-//           min="0"
-//           max={duration}
-//           value={currentTime}
-//           onChange={(e) => (audioRef.current.currentTime = e.target.value)}
-//           className="w-full"
-//         />
-//       </div>
-//       {/* Time Display */}
-//       <div className="flex justify-between w-full text-sm mt-1">
-//         <span>{Math.floor(currentTime / 60)}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}</span>
-//         <span>{Math.floor(duration / 60)}:{Math.floor(duration % 60).toString().padStart(2, '0')}</span>
-//       </div>
-      
-//       {/* Control Buttons */}
-//       <div className="flex justify-between items-center w-full mt-4">
-//         <button onClick={handlePrev} className="p-2 bg-gray-700 rounded">Prev</button>
-//         <button onClick={togglePlayPause} className="p-2 bg-green-600 rounded">
-//           {isPlaying ? "Pause" : "Play"}
-//         </button>
-//         <button onClick={handleNext} className="p-2 bg-gray-700 rounded">Next</button>
-//       </div>
-
-//       {/* Volume Control */}
-//       <div className="mt-4">
-//         <input 
-//           type="range" 
-//           min="0" 
-//           max="1" 
-//           step="0.1" 
-//           value={volume} 
-//           onChange={handleVolumeChange} 
-//           className="w-full"
-//         />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default MusicPlayer;
-
-
 import React, { useState, useRef, useEffect } from 'react';
+import { Slider } from "primereact/slider";
 
-const MusicPlayer = ({ playlist, setPlaylist, currentSong, setCurrentSong, likedSongs, setLikedSongs }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
+const MusicPlayer = ({ tracks, currentTrackIndex, isPlaying, setIsPlaying, setCurrentTrackIndex }) => {
+  const [volume, setVolume] = useState(0.5); // Default volume set to 50%
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(1);
-  const audioRef = useRef(null);
+  const [currentTime, setCurrentTime] = useState(0);
 
-  // Play or pause song
-  const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    isPlaying ? audioRef.current.pause() : audioRef.current.play();
-  };
+  const audioRef = useRef(new Audio(tracks[currentTrackIndex]?.src));
 
-  // Handle next and previous songs
-  const handleNext = () => {
-    if (currentSong < playlist.length - 1) {
-      setCurrentSong(currentSong + 1);
-      setIsPlaying(true); // Automatically play next song
+  useEffect(() => {
+    const audio = audioRef.current;
+
+    const setAudioDuration = () => setDuration(audio.duration);
+    audio.addEventListener('loadedmetadata', setAudioDuration);
+
+    const updateCurrentTime = () => setCurrentTime(audio.currentTime);
+    audio.addEventListener('timeupdate', updateCurrentTime);
+
+    return () => {
+      audio.removeEventListener('loadedmetadata', setAudioDuration);
+      audio.removeEventListener('timeupdate', updateCurrentTime);
+    };
+  }, [currentTrackIndex]);
+
+  useEffect(() => {
+    if (tracks[currentTrackIndex]) {
+      audioRef.current.src = tracks[currentTrackIndex].src;
+      audioRef.current.volume = volume;
+      if (isPlaying) {
+        audioRef.current.play();
+      } else {
+        audioRef.current.pause();
+      }
     }
+  }, [currentTrackIndex, isPlaying, tracks]);
+
+  useEffect(() => {
+    audioRef.current.volume = volume;
+  }, [volume]);
+
+  const playTrack = () => {
+    audioRef.current.play();
+    setIsPlaying(true);
   };
 
-  const handlePrev = () => {
-    if (currentSong > 0) {
-      setCurrentSong(currentSong - 1);
-      setIsPlaying(true); // Automatically play previous song
-    }
+  const pauseTrack = () => {
+    audioRef.current.pause();
+    setIsPlaying(false);
   };
 
-  // Update current time and progress bar
-  const handleTimeUpdate = () => {
-    setCurrentTime(audioRef.current.currentTime);
+  const skipTrack = () => {
+    const wasPlaying = isPlaying;
+    setCurrentTrackIndex((prevIndex) => (prevIndex + 1) % tracks.length);
+    setCurrentTime(0);
+    setIsPlaying(wasPlaying);
   };
 
-  const handleLoadedData = () => {
-    setDuration(audioRef.current.duration);
+  const previousTrack = () => {
+    const wasPlaying = isPlaying;
+    setCurrentTrackIndex((prevIndex) => (prevIndex - 1 + tracks.length) % tracks.length);
+    setCurrentTime(0);
+    setIsPlaying(wasPlaying);
   };
 
   const handleVolumeChange = (e) => {
     const newVolume = e.target.value;
     setVolume(newVolume);
-    audioRef.current.volume = newVolume;
   };
 
-  // Automatically play or pause when currentSong changes
-  useEffect(() => {
-    if (isPlaying) {
-      audioRef.current.play();
-    } else {
-      audioRef.current.pause();
-    }
-  }, [currentSong, isPlaying]);
+  const handleProgressChange = (e) => {
+    const newTime = e.target.value;
+    audioRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
 
   return (
-    <div className="flex flex-col items-center p-4 bg-gray-900 rounded-lg shadow-lg text-white">
-      <h2 className="text-xl mb-4">{playlist[currentSong]?.name || "No song selected"}</h2>
-      <audio
-        ref={audioRef}
-        src={playlist[currentSong]?.url}
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedData={handleLoadedData}
-        onEnded={handleNext}
-      ></audio>
-      
-      {/* Progress Bar */}
-      <div className="w-full mt-2">
-        <input
-          type="range"
-          min="0"
-          max={duration}
-          value={currentTime}
-          onChange={(e) => (audioRef.current.currentTime = e.target.value)}
-          className="w-full"
-        />
-      </div>
-      {/* Time Display */}
-      <div className="flex justify-between w-full text-sm mt-1">
-        <span>{Math.floor(currentTime / 60)}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}</span>
-        <span>{Math.floor(duration / 60)}:{Math.floor(duration % 60).toString().padStart(2, '0')}</span>
-      </div>
-      
-      {/* Control Buttons */}
-      <div className="flex justify-between items-center w-full mt-4">
-        <button onClick={handlePrev} className="p-2 bg-gray-700 rounded">Prev</button>
-        <button onClick={togglePlayPause} className="p-2 bg-green-600 rounded">
-          {isPlaying ? "Pause" : "Play"}
-        </button>
-        <button onClick={handleNext} className="p-2 bg-gray-700 rounded">Next</button>
-      </div>
+    <div className="music-player bg-gray-400 text-white p-6 rounded-lg flex flex-col items-center">
+      {tracks[currentTrackIndex] ? (
+        <>
+          <div className="track-info text-center mb-4">
+            <h3 className="text-2xl font-semibold">{tracks[currentTrackIndex].title}</h3>
+            <p className="text-gray-400">{tracks[currentTrackIndex].artist}</p>
+          </div>
 
-      {/* Volume Control */}
-      <div className="mt-4">
-        <input 
-          type="range" 
-          min="0" 
-          max="1" 
-          step="0.1" 
-          value={volume} 
-          onChange={handleVolumeChange} 
-          className="w-full"
-        />
-      </div>
+          <div className="controls flex space-x-4">
+            <button onClick={previousTrack}>Previous</button>
+            {isPlaying ? (
+              <button onClick={pauseTrack}>Pause</button>
+            ) : (
+              <button onClick={playTrack}>Play</button>
+            )}
+            <button onClick={skipTrack}>Next</button>
+          </div>
+
+          <div className="progress-bar mt-4 w-full">
+            <input
+              type="range"
+              min="0"
+              max={duration}
+              step="0.01"
+              value={currentTime}
+              onChange={handleProgressChange}
+              className="w-full"
+            />
+          </div>
+
+          <div className="volume-control mt-4 ">
+            <label htmlFor="volume-slider">Volume:</label>
+            <input
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={handleVolumeChange}
+              className="w-32"
+            />
+          </div>
+          
+          <div className="time-info flex justify-between w-full mt-4">
+            <span>{Math.floor(currentTime / 60)}:{Math.floor(currentTime % 60).toString().padStart(2, '0')}</span>
+            <span>{Math.floor(duration / 60)}:{Math.floor(duration % 60).toString().padStart(2, '0')}</span>
+          </div>
+        </>
+      ) : (
+        <p>No track selected</p>
+      )}
     </div>
   );
 };

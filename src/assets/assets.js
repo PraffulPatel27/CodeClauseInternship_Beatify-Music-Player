@@ -9,12 +9,18 @@ import addPlaylist from './add_playllist.svg';
 import setting from './setting.svg';
 import logout from './logout.svg';
 import userProfile from './profile.svg';
-import album1 from './p1.svg';
-import album2 from './p2.svg';
-import album3 from './p3.svg';
-import album4 from './p4.svg';
-import album5 from './p5.svg';
-import album6 from './p6.svg';
+import album1 from './amplifier.jpg';
+import album2 from './BILLO.jpeg';
+import album3 from './blue_eyes.jpeg';
+import album4 from './Faded.jpg';
+import album5 from './Alah_Duhai.jpeg';
+import album6 from './Apsara.jpeg';
+import topAlbum1 from './ta1.svg';
+import topAlbum2 from './ta2.svg';
+import topAlbum3 from './ta3.svg';
+import topAlbum4 from './ta4.svg';
+import topAlbum5 from './ta5.svg';
+import topAlbum6 from './ta6.svg';
 
 export default {
     homeIcon,
@@ -34,4 +40,10 @@ export default {
     album4,
     album5,
     album6,
+    topAlbum1,
+    topAlbum2,
+    topAlbum3,
+    topAlbum4,
+    topAlbum5,
+    topAlbum6,
 };
